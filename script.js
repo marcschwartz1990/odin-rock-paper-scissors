@@ -11,13 +11,13 @@ function computerPlay() {
     const randomThrow = generateRandomInteger(3)
     // if 1, return rock
     if (randomThrow === 1) {
-        return 'Rock';
+        return 'rock';
     // if 2, return paper
     } else if (randomThrow === 2) {
-        return 'Paper';
+        return 'paper';
     // if 3, return scissors
     } else if (randomThrow === 3) {
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
@@ -46,7 +46,9 @@ function playRound(playerSelection, computerSelection) {
     return computerWins
 }
 
-
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 
 
