@@ -51,21 +51,33 @@ function playRound(playerSelection, computerSelection) {
     return 'computer'
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
-//function game()
-
-//create playerScore variable and set value to 0
-//create computerScore variable and set value to 0
-//get player selection with prompt
-//generate random computer selection
-//play round
-//if playerOne
 
 
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        const playerThrow = prompt('rock, paper, or scissors?: ');
+        const computerThrow = computerPlay();
+
+        const result = playRound(playerThrow, computerThrow);
+        if (result === 'player') {
+            playerScore++
+        } else if (result === 'computer') {
+            computerScore++
+        }
+    }
+    console.log(`Player Score: ${playerScore}`)
+    console.log(`Computer Score: ${computerScore}`)
+
+    if (playerScore === computerScore) {
+        return 'No Winner. Tie!'
+    } else if (playerScore > computerScore) {
+        return 'You win!'
+    }
+    return 'You Lose!'
+    }
 
 
-
-//return winner or loser declaration
+console.log(game())
