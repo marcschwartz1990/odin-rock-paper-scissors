@@ -34,21 +34,36 @@ function playRound(playerSelection, computerSelection) {
 
     //if playerSelection and computerSelection are equal, return "You Tied."
     if (playerSelection === computerSelection) {
-        return tie;
+        console.log(tie);
+        return 'tie'
     //playerWins options
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return playerWins;
+        console.log(playerWins);
+        return 'player'
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return playerWins;
+        console.log(playerWins);
+        return 'player'
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return playerWins;
+        console.log(playerWins);
+        return 'player'
     }
-    return computerWins
+    console.log(computerWins)
+    return 'computer'
 }
 
 const playerSelection = "rock";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+//function game()
+
+//create playerScore variable and set value to 0
+//create computerScore variable and set value to 0
+//get player selection with prompt
+//generate random computer selection
+//play round
+//if playerOne
+
 
 
 
