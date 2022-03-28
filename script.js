@@ -24,6 +24,9 @@ function computerPlay() {
 //Create a function that plays a single round of Rock Paper Scissors. Return declaration of winner.
 
 function playRound(playerSelection, computerSelection) {
+    //set any user input to all lower case to match conditional statement.
+    playerSelection = playerSelection.toLowerCase()
+    
     //create variables with potential messages
     playerWins = `You Win! ${playerSelection} beats ${computerSelection}!`
     computerWins = `You Lose! ${computerSelection} beats ${playerSelection}!`
@@ -33,11 +36,11 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return tie;
     //playerWins options
-    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         return playerWins;
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         return playerWins;
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         return playerWins;
     }
     return computerWins
