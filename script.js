@@ -34,50 +34,62 @@ function playRound(playerSelection, computerSelection) {
 
     //if playerSelection and computerSelection are equal, return "You Tied."
     if (playerSelection === computerSelection) {
-        console.log(tie);
+        document.getElementById("results").innerHTML = tie;
         return 'tie'
     //playerWins options
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log(playerWins);
+        document.getElementById("results").innerHTML = playerWins;
         return 'player'
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log(playerWins);
+        document.getElementById("results").innerHTML = playerWins;
         return 'player'
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log(playerWins);
+        document.getElementById("results").innerHTML = playerWins;
         return 'player'
     }
-    console.log(computerWins)
+    document.getElementById("results").innerHTML = computerWins;
     return 'computer'
 }
 
+function displayScore(player, score) {
+    document.getElementById(`${player}Score`).innerHTML = `${player}: ${score}`;
+};
 
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        const playerThrow = prompt('rock, paper, or scissors?: ');
-        const computerThrow = computerPlay();
+displayScore('player', playerScore)
+displayScore('computer', computerScore)
 
-        const result = playRound(playerThrow, computerThrow);
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id)
+        let result = playRound(button.id, computerPlay());
         if (result === 'player') {
             playerScore++
         } else if (result === 'computer') {
             computerScore++
         }
-    }
-    console.log(`Player Score: ${playerScore}`)
-    console.log(`Computer Score: ${computerScore}`)
+    
+    displayScore('player', playerScore)
+    displayScore('computer', computerScore)
 
-    if (playerScore === computerScore) {
-        return 'No Winner. Tie!'
-    } else if (playerScore > computerScore) {
-        return 'You win!'
+    if (playerScore === 5) {
+        displayScore('player', playerScore)
+        displayScore('computer', computerScore)
+        alert('Congratulations! You Win!')
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        displayScore('player', playerScore)
+        displayScore('computer', computerScore)
+        alert('You Lose! The computer beat you.')
+        playerScore = 0;
+        computerScore = 0;
     }
-    return 'You Lose!'
-    }
+    });
+    });
 
-
-console.log(game())
